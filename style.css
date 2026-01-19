@@ -1,0 +1,281 @@
+/* =========================
+   RESET / GLOBAL
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #0e0e0e;
+  color: #eaeaea;
+}
+
+/* =========================
+   BANNER / HEADER
+========================= */
+.banner {
+  display: block;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+.banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media (max-width: 768px) {
+  .banner { height: 120px; }
+}
+
+header {
+  text-align: center;
+  padding-bottom: 0.5rem;
+}
+header h1 {
+  font-size: 2.5rem;
+}
+header p {
+  color: #9a9a9a;
+  margin-top: 0.5rem;
+}
+
+/* =========================
+   TABS
+========================= */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1rem;
+}
+.tabs button {
+  background: #1a1a1a;
+  color: #ccc;
+  border: none;
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;
+}
+.tabs button.active {
+  background: #fff;
+  color: #000;
+}
+
+/* =========================
+   GALLERY GRID
+========================= */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.2rem;
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  grid-auto-flow: dense;
+}
+@media (max-width: 1024px) {
+  .gallery { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 768px) {
+  .gallery { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* =========================
+   POSTS
+========================= */
+.post {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+.post img.thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #1a1a1a;
+  border-radius: 6px;
+}
+
+/* Featured */
+.post.feature-2x2 { grid-column: span 2; grid-row: span 2; }
+.post.feature-2x1 { grid-column: span 2; aspect-ratio: 6 / 4; }
+.post.feature-1x2 { grid-row: span 2; aspect-ratio: 3 / 8; }
+
+/* Icons */
+.multi-icon,
+.gif-icon {
+  position: absolute;
+  background: rgba(0,0,0,0.65);
+  color: #fff;
+  border-radius: 4px;
+  pointer-events: none;
+}
+.multi-icon {
+  top: 6px;
+  right: 6px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gif-icon {
+  bottom: 6px;
+  right: 6px;
+  padding: 2px 6px;
+  font-size: 10px;
+}
+
+/* =========================
+   LIGHTBOX
+========================= */
+#lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  z-index: 999;
+}
+
+#lightbox.open {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Image */
+#lightbox img {
+  max-width: 90vw;
+  max-height: 75vh;
+  object-fit: contain;
+}
+
+/* =========================
+   IMAGE NAV — BELOW IMAGE
+========================= */
+.img-nav {
+  display: none;
+  margin-top: 14px;
+  gap: 0.6rem;
+  align-items: center;
+  justify-content: center;
+}
+
+#lightbox.open .img-nav {
+  display: flex;
+}
+
+.img-nav button {
+  font-size: 1.5rem;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.3rem 0.6rem;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#counter {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.4);
+  padding: 0 0.6rem;
+  border-radius: 4px;
+}
+
+/* =========================
+   CLOSE BUTTON — DESKTOP
+========================= */
+#close {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  font-size: 1.4rem;
+  padding: 0.25rem 0.5rem;
+  background: rgba(0,0,0,0.6);
+  border-radius: 6px;
+  border: none;
+  color: #fff;
+  z-index: 1002;
+}
+
+/* =========================
+   CLOSE BUTTON — MOBILE
+========================= */
+@media (max-width: 768px) {
+  #close {
+    top: auto;
+    bottom: 16px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+}
+
+/* =========================
+   POST NAV — SIDE ARROWS
+========================= */
+#post-prev,
+#post-next {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.5rem;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border-radius: 6px;
+  padding: 0.3rem 0.6rem;
+  z-index: 1001;
+}
+#post-prev { left: 10px; }
+#post-next { right: 10px; }
+
+/* =========================
+   MOBILE IMAGE SPACE
+========================= */
+@media (max-width: 768px) {
+  #lightbox img {
+    max-height: calc(100vh - 260px);
+  }
+}
+
+/* =========================
+   FOOTER / SOCIALS
+========================= */
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.plap {
+  color: #0af;
+  cursor: pointer;
+  user-select: none;
+}
+
+.social-icons {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-icons img {
+  width: 18px;
+  height: 18px;
+  filter: invert(85%);
+  opacity: 0.85;
+}
+
