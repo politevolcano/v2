@@ -73,7 +73,7 @@ const galleryData = [
   {
     tag: "western",
     showOnMain: false,
-    thumb: "https://i.imgflip.com/2/8oan6u.jpg",
+    thumb: "https://files.catbox.moe/qcrm52.jpg",
     images: ["https://media.tenor.com/TQTVSmxhX5kAAAAj/apu-apustaja-apu.gif"]
   }
 ];
@@ -259,4 +259,5 @@ document.addEventListener("keydown", e => {
   if (e.key === "ArrowDown") postNext.click();
   if (e.key === "Escape") lb.classList.remove("open");
 });
+
 
